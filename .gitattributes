@@ -1,1 +1,2 @@
 *.psd filter=lfs diff=lfs merge=lfs -text
+HR[[:space:]]Salary[[:space:]]Prediction filter=lfs diff=lfs merge=lfs -text

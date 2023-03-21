@@ -144,8 +144,8 @@ print("Best score is {}".format(logreg_cv.best_score_))
 pd.Series(model_rf.feature_importances_,index=X.columns).sort_values(ascending=False)*100
 
 param_grid = { 
-    'n_estimators': [100,200,300],
-    'max_depth' : [20,25,30],
+    'n_estimators': [5,10,20],
+    'max_depth' : [10,15,20],
     'criterion' :['gini', 'entropy']
 }
 
@@ -154,7 +154,7 @@ CV_rfc = GridSearchCV(estimator=model_rf, param_grid=param_grid, cv= 5)
 CV_rfc.fit(X_train, y_train)
 CV_rfc.best_params_
 
-rft = RandomForestClassifier(n_estimators=300,max_depth=25,random_state=42,criterion='entropy')
+rft = RandomForestClassifier(n_estimators=10,max_depth=10,random_state=42,criterion='entropy')
 rft.fit(X_train,y_train)
 
 y_pred=rft.predict(X_test)
